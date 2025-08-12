@@ -21,7 +21,6 @@ a {
     position: fixed;
     left: 0;
     top: 0;
-    /* background: #88878754; */
     width: 100%;
     padding: 20px 9%;
     display: flex;
@@ -64,32 +63,8 @@ a {
 .navbar ul li:hover a,
 .navbar ul li.active a{
     color: #7cf03d;
+    scale: 1.1;
 }
-
-/* li {
-    position: relative;
-}
-
-li::before{
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    background:hsl(0, 0%, 100%);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-    z-index: -1;
-    opacity: 20%;
-    transform-origin: right;
-}
-
-li:hover::before {
-    transform: scaleX(1);
-    transform-origin: left;
-} */
 
 .home {
     display: flex;
@@ -98,22 +73,25 @@ li:hover::before {
     gap: 50px;
     padding: 60px 9% 0;
     color: #fff;
-    visibility: hidden;
-    opacity: 0;
     animation: show-content 1.5s linear forwards;
-    animation-delay: 1.6s;
 }
+
 
 .home-info h1 {
     font-size: 50px;
     font-weight: 600;
-    
+    animation: display-text 1s ease forwards;
+    animation-delay: 2s;
+    opacity: 0;
 }
 
 .home-info h2 {
     display: inline-block;
     font-size: 25px;
     margin-left: 0px;
+    opacity: 0;
+    animation: display-text 1s ease forwards;
+    animation-delay: 2.4s;
 }
 
 .home-info h2 span {
@@ -121,14 +99,12 @@ li:hover::before {
     display: inline-block;
     color: transparent;
     -webkit-text-stroke: .7px #7cf03d;
-    /* animation: display-text 4s linear forwards; */
     animation-delay:calc(.1s * var(--i)) ;
 }
 
 @keyframes display-text {
-    25%,
-    100% {
-        display: none;
+    100%{
+        opacity: 100%;
     }
 }
 
@@ -166,10 +142,24 @@ li:hover::before {
     margin: 10px 0 25px;
 }
 
+.home-info .p1 {
+    animation: display-text 1s ease forwards;
+    opacity: 0;
+    animation-delay: 3s;
+}
+
+.home-info .p2 {
+    animation: display-text 1s ease forwards;
+    opacity: 0;
+    animation-delay: 3.6s;
+}
+
 .home-info .btn-sci {
     display: block;
     align-items: center;
-
+    animation: display-text 0.8s ease forwards;
+    animation-delay: 4.6s;
+    opacity: 0; 
 }
 
 .btn {
@@ -318,7 +308,9 @@ li:hover::before {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* overflow: hidden; */
+    animation: display-text 1.6s ease forwards;
+    opacity: 0;
+    animation-delay: 1.6s;
 }
 
 .home-img .img-box::before,
@@ -327,22 +319,14 @@ li:hover::before {
     position: absolute;
     width: 500px;
     height: 500px;
-    /* background: conic-gradient(transparent, transparent, transparent, #7cf03d); */
-    transform: rotate(0deg);
-    animation: border 5s linear infinite ;
+
 }
 
 .home-img .img-box::after{
     animation-delay: -2.5s;
 }
 
-@keyframes border {
-    100% {
-        /* transform: rotate(360deg); */
-    }
-}
 .home-img .img-box .img-item {
-    /* position: relative; */
     width: 100%;
     height: 100%;
     background: #17262e;
@@ -360,18 +344,16 @@ li:hover::before {
     width: 85%;
     margin-top: -120px;
     object-fit: cover;
-    /* transform: rotate(2.5deg); */
     scale: 1.2;
     transition: .4s ;
-    
 }
 
-/* .home-img .img-box .img-item img:hover {
-    scale: 1.24;
-} */
+.home-img .img-box .img-item img:hover{
+    scale: 1.22;
+}
 
 .bars-animation {
-    position: absolute;
+    position: fixed;
     height: 100%;
     width: 100%;
     display: flex;
@@ -382,7 +364,6 @@ li:hover::before {
     height: 100%;
     width: 100%;
     background:linear-gradient(#3e6c85 -30%,#17262e,#69da35b2 160%);
-    /* background: linear-gradient(#333333,#ffffff); */
     transform: translateY(-100%);
     border-radius: 50%;
     opacity: 90%;
@@ -392,21 +373,17 @@ li:hover::before {
 
 @keyframes show-bars {
     50% {
-        /* opacity: 90%; */
         transform: translateY(0%);
         border-radius: 50%;
     }
 
     50%,
     85% {
-        /* opacity: 90%; */
         transform: translateY(0%);
     }
     
     100% {
-        /* opacity: 0%; */
         transform: translateY(0%);
         border-radius: 0%;
     }
 }
-
